@@ -11,6 +11,7 @@
 
 belongs_to :group, through: :groups_users  
 has_many :group_members
+has_many :messages
 
 
 ## groups table
@@ -24,6 +25,7 @@ has_many :group_members
 
 has_many :users, through: :groups_users  
 has_many :groups_users
+has_many :messages
 
 
 ## groups_users table
@@ -45,6 +47,7 @@ belongs_to :user
 | column          | Type    | Options             |
 |:----------------|:-------:|:--------------------|
 | body            | text    | null: false         |
+| image           | string  |                     |
 | user_id         | integer | foreign_key :true   |
 | group_id        | integer | foreign_key :true   |
 
