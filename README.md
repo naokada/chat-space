@@ -9,8 +9,8 @@
 
 ### association
 
-belongs_to :group, through: :groups_users  
-has_many :group_members
+belongs_to :groups, through: :groups_users  
+has_many :groups_users  
 has_many :messages
 
 
@@ -24,16 +24,16 @@ has_many :messages
 ### association
 
 has_many :users, through: :groups_users  
-has_many :groups_users
+has_many :groups_users  
 has_many :messages
 
 
 ## groups_users table
 
-| column             | Type    | Options             |
-|:-------------------|:-------:|:--------------------|
-| user_id            | integer | foreign_key :true   |
-| group_id           | integer | foreign_key :true   |
+| column             | Type    | Options                        |
+|:-------------------|:-------:|:-------------------------------|
+| user_id            | integer | foreign_key :true, null: false |
+| group_id           | integer | foreign_key :true, null: false |
 
 
 ### association
@@ -44,12 +44,13 @@ belongs_to :user
 
 ## messages table
 
-| column          | Type    | Options             |
-|:----------------|:-------:|:--------------------|
-| body            | text    | null: false         |
-| image           | string  |                     |
-| user_id         | integer | foreign_key :true   |
-| group_id        | integer | foreign_key :true   |
+| column          | Type    | Options                        |
+|:----------------|:-------:|:-------------------------------|
+| body            | text    |                                |
+| image           | string  |                                |
+| user_id         | integer | foreign_key :true, null: false |
+| group_id        | integer | foreign_key :true, null: false |
+
 
 ### association
 
