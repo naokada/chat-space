@@ -1,0 +1,153 @@
+.contents {
+  width: 100vw;
+  .newmessage {
+    text-align: center;
+    background-color: $blue;
+    color: $main-white;
+  }
+  .sidebar {
+    width: 300px;
+    float: left;
+    color: $main-white;
+    height: calc(100vh - 24px);
+    float: left;
+    &__profile {
+      background-color: #253141;
+      height: 60px;
+      padding: 20px;
+      color: $main-white;
+      line-height: 70px;
+      &__username {
+        font-weight: bold;
+        font-size: 16px;
+        float: left;
+      }
+      &__icons {
+      & a{
+        color: $main-white;
+        float: right;
+        margin-left: 10px;
+      }
+      }
+    }
+    &__list {
+      background-color: #2f3e51;
+      padding:0 20px;
+      height: calc(100vh - 124px);
+      & li {
+        padding: 20px 0;
+      }
+      &__group {
+        padding: 0 0 5px;
+        font-size: 15px;
+      }
+      &__text {
+        font-size: 11px;
+      }
+    }
+  }
+  .rightcontents {
+    height: calc(100vh - 24px);
+    width: calc(100vw - 300px);
+    float: right;
+    .header {
+      height: 100px;
+      display: block;
+      border-bottom: 1px solid #eeeeee;
+      width: calc(100% - 80px);
+      padding: 0 40px;
+      &__info {
+        float: left;
+        &__title {
+          padding: 35px 0 15px;
+          font-size: 20px;
+          color: #333333;
+        }
+        &__member {
+          font-size: 12px;
+          color: #999999;
+        }
+      }
+      &__edit {
+        display: block;
+        margin-top: 28px;
+        height: 40px;
+        line-height: 40px;
+        padding: 0 20px;
+        border: 1px solid #38AEF0;
+        float: right;
+        &__button {
+          color: $blue;
+          text-decoration: none;
+        }
+      }
+    }
+    .main {
+      background-color: #FAFAFA;
+      height: calc(100vh - 215px);
+      overflow-y: scroll;
+      &__messages {
+        padding: 46px 40px 0;
+      }
+      &__message {
+        margin-bottom: 40px;
+        &__up {
+          display: flex;
+          &__name {
+            font-size: 16px;
+            font-weight: bold;
+            color: $character;
+            margin-right: 10px;
+          }
+          &__date {
+            font-size: 12px;
+            color: #999999;
+          }
+        }
+        &__low {
+          margin-top:10px;
+          font-size: 14px;
+          color: $character;
+        }
+      }
+    }
+    .form {
+      height: 50px;
+      padding: 20px 40px;
+      background-color: #aaaaaa;
+      display: flex;
+      &__box {
+        margin: 0 10px;
+        position: relative;
+        width: calc(100% - 115px);
+        & input {
+          color: $character;
+          width: calc(100% - 10px);
+          height: 50px;
+          display: block;
+          padding-left: 10px;
+        }
+        &__pic {
+          position: absolute;
+          top: 1px;
+          height:50px;
+          right: 0px;
+          display: block;
+          #file {
+            padding: 0 10px;
+            line-height: 50px;
+            background-color: $main-white;
+          }
+        }
+      }
+      &__send {
+        background: #38AEF0;
+        text-align: center;
+        line-height: 50px;
+        color: $main-white;
+        width:100px;
+        margin-left: 15px;
+      }
+    }
+  }
+}

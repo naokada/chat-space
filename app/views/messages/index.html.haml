@@ -1,0 +1,67 @@
+!!!
+%html
+  %body
+    .contents
+      .newmessage
+        %p チャットグループが作成されました。
+      .sidebar
+        .sidebar__profile
+          .sidebar__profile__username
+            %p username
+          .sidebar__profile__icons
+            %a{:href => ""}= fa_icon('edit')
+            %a{:href => ""}= fa_icon('cog')
+        .sidebar__list
+          %ul
+            %li
+              .sidebar__list__group
+                %p aaaaaaaa
+              .sidebar__list__text
+                %p まだメッセージはありません
+            %li
+              .sidebar__list__group
+                %p sampleグループ
+              .sidebar__list__text
+                %p まだメッセージはありません
+      .rightcontents
+        .header
+          .header__info
+            %p.header__info__title sampleグループ
+            %p.header__info__member Member：okadanao ryosukemaehira
+          .header__edit
+            %a.header__edit__button{ href: ""} edit
+        .main
+          .main__messages
+            .main__message
+              .main__message__up
+                .main__message__up__name
+                  %p ryosukemaehira
+                .main__message__up__date
+                  %p 2016/10/02 06:27:07
+              .main__message__low
+                %p なるほど
+            .main__message
+              .main__message__up
+                .main__message__up__name
+                  %p ryosukemaehira
+                .main__message__up__date
+                  %p 2016/10/02 06:27:14
+              .main__message__low
+                %p command Enterで送信したい感ある
+            .main__message
+              .main__message__up
+                .main__message__up__name
+                  %p ryosukemaehira
+                .main__message__up__date
+                  %p 2016/10/02 06:27:30
+              .main__message__low
+                %p おなかすいた
+        .form
+          .form__box
+            %input{placeholder: "type a message", type:"text"}
+            .form__box__pic
+              %label{for:"file"}
+              %input{type:"file", style:"display:none;"}
+              %p#file=fa_icon('picture-o')
+          .form__send
+            %p send
