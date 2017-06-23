@@ -1,25 +1,26 @@
-@mixin fontColor{
-  color: #ffffff;
-}
+$main-white: #ffffff;
+$blue: #38aef0;
+$character: #434a54;
+
 
 .contents {
   width: 100vw;
   .newmessage {
     text-align: center;
-    background-color: #38AEF0;
-    @include fontColor;
+    background-color: $blue;
+    color: $main-white;
   }
   .sidebar {
     width: 300px;
     float: left;
-    @include fontColor;
+    color: $main-white;
     height: calc(100vh - 24px);
     float: left;
     &__profile {
       background-color: #253141;
       height: 60px;
       padding: 20px;
-      @include fontColor;
+      color: $main-white;
       line-height: 70px;
       &__username {
         font-weight: bold;
@@ -28,7 +29,7 @@
       }
       &__icons {
       & a{
-        @include fontColor;
+        color: $main-white;
         float: right;
         margin-left: 10px;
       }
@@ -81,7 +82,7 @@
         border: 1px solid #38AEF0;
         float: right;
         &__button {
-          color: #38AEF0;
+          color: $blue;
           text-decoration: none;
         }
       }
@@ -100,7 +101,7 @@
           &__name {
             font-size: 16px;
             font-weight: bold;
-            color: #434A54;
+            color: $character;
             margin-right: 10px;
           }
           &__date {
@@ -111,7 +112,7 @@
         &__low {
           margin-top:10px;
           font-size: 14px;
-          color: #434A54;
+          color: $blue;
         }
       }
     }
@@ -125,7 +126,7 @@
         position: relative;
         width: calc(100% - 115px);
         & input {
-          color: #434a54;
+          color: $character;
           width: calc(100% - 10px);
           height: 50px;
           display: block;
@@ -140,7 +141,7 @@
           #file {
             padding: 0 10px;
             line-height: 50px;
-            background-color: #ffffff;
+            background-color: $main-white;
           }
         }
       }
@@ -148,7 +149,7 @@
         background: #38AEF0;
         text-align: center;
         line-height: 50px;
-        color: #ffffff;
+        color: $main-white;
         width:100px;
         margin-left: 15px;
       }
