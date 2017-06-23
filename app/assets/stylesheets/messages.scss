@@ -1,8 +1,3 @@
-$main-white: #ffffff;
-$blue: #38aef0;
-$character: #434a54;
-
-
 .contents {
   width: 100vw;
   .newmessage {
@@ -112,7 +107,7 @@ $character: #434a54;
         &__low {
           margin-top:10px;
           font-size: 14px;
-          color: $blue;
+          color: $character;
         }
       }
     }
