@@ -37,7 +37,7 @@
     &__list {
       background-color: #2f3e51;
       padding:0 20px;
-      height: calc(100vh - 174px);
+      height: calc(100vh - 124px);
       & li {
         padding: 20px 0;
       }
@@ -88,7 +88,7 @@
     }
     .main {
       background-color: #FAFAFA;
-      height: calc(100vh - 225px);
+      height: calc(100vh - 215px);
       overflow-y: scroll;
       &__messages {
         padding: 46px 40px 0;
