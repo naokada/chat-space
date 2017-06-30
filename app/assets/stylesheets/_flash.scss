@@ -1,15 +1,12 @@
 .flash {
   color: $main-white;
   text-align: center;
-  background-color: red;
+  width: 100%;
 
-  &__signed_up {
+  &__notice {
     background-color: $blue;
   }
-  &__signed_in {
-    background-color: $blue;
-  }
-  &__signed_out{
+  &__alert {
     background-color: $orange;
   }
 }

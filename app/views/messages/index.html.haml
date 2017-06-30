@@ -7,7 +7,7 @@
           .sidebar__profile__username
             %p username
           .sidebar__profile__icons
-            = link_to edit_user_path(1) do
+            = link_to edit_user_path(current_user.id) do
               %i{class: "fa fa-cog"}
             %a{href: ""}= fa_icon('edit')
         .sidebar__list
