@@ -1,0 +1,15 @@
+.flash {
+  color: $main-white;
+  text-align: center;
+  background-color: red;
+
+  &__signed_up {
+    background-color: $blue;
+  }
+  &__signed_in {
+    background-color: $blue;
+  }
+  &__signed_out{
+    background-color: $orange;
+  }
+}
