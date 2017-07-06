@@ -4,10 +4,10 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @users = User.all
   end
 
   def create
+    redirect_to controller: :messages, action: :index
   end
 
   def edit
