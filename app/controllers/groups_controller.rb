@@ -7,7 +7,7 @@ class GroupsController < ApplicationController
   end
 
   def create
-    @group = Group.new(name: create_params[:name])
+    @group = Group.new(create_params)
     if @group.save
       redirect_to root_path, notice: "グループを作成しました"
     else
