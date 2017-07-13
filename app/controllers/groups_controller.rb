@@ -7,7 +7,12 @@ class GroupsController < ApplicationController
   end
 
   def create
-    redirect_to controller: :messages, action: :index
+    @group = Group.new(name: create_params[:name])
+    if @group.save
+      redirect_to root_path, notice: "グループを作成しました"
+    else
+      render :new
+    end
   end
 
   def edit
@@ -16,4 +21,8 @@ class GroupsController < ApplicationController
   def update
   end
 
+  private
+  def create_params
+    params.require(:group).permit(:name, {user_ids:[]})
+  end
 end
