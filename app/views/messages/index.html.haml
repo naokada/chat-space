@@ -5,21 +5,18 @@
       .sidebar
         .sidebar__profile
           .sidebar__profile__username
-            %p username
+            %p #{current_user.name}
           .sidebar__profile__icons
             = link_to edit_user_path(current_user.id) do
               %i{class: "fa fa-cog"}
-            %a{href: ""}= fa_icon('edit')
+            = link_to new_group_path do
+              %i{class: "fa fa-edit"}
         .sidebar__list
           %ul
-            %li
+          - @groups.each do |group|
+            %li<
               .sidebar__list__group
-                %p aaaaaaaa
-              .sidebar__list__text
-                %p まだメッセージはありません
-            %li
-              .sidebar__list__group
-                %p sampleグループ
+                %p #{group.name}
               .sidebar__list__text
                 %p まだメッセージはありません
       .rightcontents
