@@ -1,0 +1,22 @@
+!!!
+%html
+  %body
+    .contents
+      .sidebar
+        .sidebar__profile
+          .sidebar__profile__username
+            %p #{ current_user.name }
+          .sidebar__profile__icons
+            = link_to edit_user_path(current_user.id) do
+              %i{class: "fa fa-cog"}
+            = link_to new_group_path do
+              %i{class: "fa fa-edit"}
+        .sidebar__list
+          %ul
+          - @groups.each do |group|
+            %li<
+            = link_to edit_group_path(group.id) do
+              .sidebar__list__group
+                %p #{ group.name }
+              .sidebar__list__text
+                %p まだメッセージはありません
