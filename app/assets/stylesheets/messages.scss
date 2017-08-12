@@ -27,7 +27,7 @@
     }
     &__list {
       background-color: #2f3e51;
-      padding:0 20px;
+      padding: 0 20px;
       height: calc(100vh - 124px);
       & li {
         padding: 20px 0;
@@ -35,10 +35,14 @@
       }
       &__group {
         padding: 0 0 5px;
+        text-decoration: none;
         font-size: 15px;
+        color: $main-white;
       }
       &__text {
+        text-decoration: none;
         font-size: 11px;
+        color: $main-white;
       }
     }
   }
