@@ -11,10 +11,13 @@ class MessagesController < ApplicationController
   end
 
   def create
-    binding.pry
     @group = find_message_group
-    @message = Message.create(body: message_params[:body], image: message_params[:image], user_id: current_user.id, group_id: @group.id)
-    redirect_to new_group_message_path(@group)
+    @message = Message.new(body: message_params[:body], image: message_params[:image], user_id: current_user.id, group_id: @group.id)
+    if @message.save
+      redirect_to new_group_message_path(@group)
+    else
+      redirect_to new_group_message_path(@group), alert: "メッセージを入力してください"
+    end
   end
 
 private
