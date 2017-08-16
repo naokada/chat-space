@@ -1,0 +1,50 @@
+.form {
+  height: 50px;
+  padding: 20px 40px;
+  background-color: #aaaaaa;
+  &__box {
+    &__left{
+      float: left;
+      position: relative;
+      display: flex;
+      margin: 0 10px 15px 0;
+      width: calc(100% - 115px);
+    }
+    &__text {
+      width:100%;
+    }
+    #message_body {
+      border: none;
+      color: $character;
+      width: calc(100% - 10px);
+      height: 50px;
+      display: block;
+      padding-left: 10px;
+    }
+    &__pic {
+      position: absolute;
+      height:50px;
+      right: 0px;
+      display: block;
+      padding: 0 10px;
+      line-height: 50px;
+      background-color: $main-white;
+      &__botton {
+        display:none !important;
+      }
+    }
+  }
+    &__right{
+      float: right;
+    }
+  &__send{
+    background: #38AEF0;
+    text-align: center;
+    line-height: 50px;
+    color: $main-white;
+    width: 100px;
+    margin-left: 15px;
+    display: block;
+    border: none;
+  }
+}

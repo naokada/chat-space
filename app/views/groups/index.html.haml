@@ -15,7 +15,7 @@
           %ul
           - @groups.each do |group|
             %li<
-            = link_to edit_group_path(group) do
+            = link_to new_group_message_path(group) do
               .sidebar__list__group
                 %p #{ group.name }
               .sidebar__list__text

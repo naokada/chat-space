@@ -1,0 +1,56 @@
+!!!
+%html
+  %body
+    .contents
+      = render template: "groups/index"
+      .rightcontents
+        .header
+          .header__info
+            %p.header__info__title #{ @group.name }
+            .header__info__member
+              %p Member：
+              %ul
+                - @users.each do |user|
+                  %li #{ user.name }
+          .header__edit
+            %a.header__edit__button{ href: ""} edit
+        .main
+          .main__messages
+            .main__message
+              .main__message__up
+                .main__message__up__name
+                  %p ryosukemaehira
+                .main__message__up__date
+                  %p 2016/10/02 06:27:07
+              .main__message__low
+                %p なるほど
+            .main__message
+              .main__message__up
+                .main__message__up__name
+                  %p ryosukemaehira
+                .main__message__up__date
+                  %p 2016/10/02 06:27:14
+              .main__message__low
+                %p command Enterで送信したい感ある
+            .main__message
+              .main__message__up
+                .main__message__up__name
+                  %p ryosukemaehira
+                .main__message__up__date
+                  %p 2016/10/02 06:27:30
+              .main__message__low
+                %p おなかすいた
+        .form
+          .form__box
+            = form_for [@group, @message] do |f|
+              .form__box__left
+                .form__box__text
+                  = f.text_field :body, placeholder: "type a message"
+                .form__box__pic
+                  = f.label :image, fa_icon('picture-o')
+                .form__box__pic__botton
+                  = f.file_field :image
+              .form__box__right
+                .form__box__send
+                  = f.submit "send", class: "form__send"
+

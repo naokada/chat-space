@@ -37,5 +37,5 @@ gem "pry-rails"
 
 # Image Uploader
 gem 'carrierwave'
-gem 'rmagick', require: 'RMagick'
+gem 'rmagick'
 
