@@ -2,28 +2,16 @@
 %html
   %body
     .contents
-      .sidebar
-        .sidebar__profile
-          .sidebar__profile__username
-            %p #{current_user.name}
-          .sidebar__profile__icons
-            = link_to edit_user_path(current_user.id) do
-              %i{class: "fa fa-cog"}
-            = link_to new_group_path do
-              %i{class: "fa fa-edit"}
-        .sidebar__list
-          %ul
-          - @groups.each do |group|
-            %li<
-              .sidebar__list__group
-                %p #{group.name}
-              .sidebar__list__text
-                %p まだメッセージはありません
+      = render template: "groups/index"
       .rightcontents
         .header
           .header__info
-            %p.header__info__title sampleグループ
-            %p.header__info__member Member：okadanao ryosukemaehira
+            %p.header__info__title #{ @group.name }
+            .header__info__member
+              %p Member：
+              %ul
+                - @users.each do |user|
+                  %li #{ user.name }
           .header__edit
             %a.header__edit__button{ href: ""} edit
         .main
@@ -54,10 +42,15 @@
                 %p おなかすいた
         .form
           .form__box
-            %input{placeholder: "type a message", type:"text"}
-            .form__box__pic
-              %label{for:"file"}
-              %input{type:"file", style:"display:none;"}
-              %p#file=fa_icon('picture-o')
-          .form__send
-            %p send
+            = form_for [@group, @message] do |f|
+              .form__box__left
+                .form__box__text
+                  = f.text_field :body, placeholder: "type a message"
+                .form__box__pic
+                  = f.label :image, fa_icon('picture-o')
+                .form__box__pic__botton
+                  = f.file_field :image
+              .form__box__right
+                .form__box__send
+                  = f.submit "send", class: "form__send"
+
