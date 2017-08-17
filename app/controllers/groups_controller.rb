@@ -1,10 +1,7 @@
 class GroupsController < ApplicationController
 
-  before_action :find_group, only: [:edit, :update]
-
-  before_action :users_groups, only: [:index]
-
   def index
+    @groups = current_user.groups
   end
 
   def show
@@ -24,9 +21,11 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    @group = find_group
   end
 
   def update
+    @group = find_group
     if @group.update_attributes(create_params)
       redirect_to root_path, notice: "グループを編集しました"
     else
@@ -40,10 +39,6 @@ class GroupsController < ApplicationController
   end
 
   def find_group
-    @group = Group.find(params[:id])
-  end
-
-  def users_groups
-    @groups = current_user.groups
+    Group.find(params[:id])
   end
 end

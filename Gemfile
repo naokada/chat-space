@@ -34,8 +34,3 @@ gem "erb2haml"
 gem "font-awesome-rails"
 gem "devise"
 gem "pry-rails"
-
-# Image Uploader
-gem 'carrierwave'
-gem 'rmagick'
-
