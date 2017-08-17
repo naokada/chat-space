@@ -2,8 +2,9 @@ class GroupsController < ApplicationController
 
   before_action :find_group, only: [:edit, :update]
 
+  before_action :users_groups, only: [:index]
+
   def index
-    @groups = current_user.groups
   end
 
   def show
@@ -39,6 +40,10 @@ class GroupsController < ApplicationController
   end
 
   def find_group
-  @group = Group.find(params[:id])
+    @group = Group.find(params[:id])
+  end
+
+  def users_groups
+    @groups = current_user.groups
   end
 end

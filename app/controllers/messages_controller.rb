@@ -1,9 +1,10 @@
 class MessagesController < ApplicationController
 
-  before_action :find_message_group, only: [:new, :create]
+  before_action :set_groups, only: [:new, :create]
+
+  before_action :users_groups, only: [:new, :create]
 
   def index
-    @groups = current_user.groups
   end
 
   def new
@@ -25,9 +26,13 @@ private
     params.require(:message).permit(:body, :image, :image_cache, :remove_image).merge(group_id: params[:group_id])
   end
 
-  def find_message_group
+  def set_groups
     @group = Group.find(params[:group_id])
     @users = @group.users
+  end
+
+  def users_groups
+    @groups = current_user.groups
   end
 
 end
