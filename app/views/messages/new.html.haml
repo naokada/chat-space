@@ -17,29 +17,19 @@
         .main
           .main__messages
             .main__message
+            - @messages.each do |message|
               .main__message__up
                 .main__message__up__name
-                  %p ryosukemaehira
+                  = message.user.name
                 .main__message__up__date
-                  %p 2016/10/02 06:27:07
-              .main__message__low
-                %p なるほど
-            .main__message
-              .main__message__up
-                .main__message__up__name
-                  %p ryosukemaehira
-                .main__message__up__date
-                  %p 2016/10/02 06:27:14
-              .main__message__low
-                %p command Enterで送信したい感ある
-            .main__message
-              .main__message__up
-                .main__message__up__name
-                  %p ryosukemaehira
-                .main__message__up__date
-                  %p 2016/10/02 06:27:30
-              .main__message__low
-                %p おなかすいた
+                  = message.created_at.strftime("%Y/%m/%d %H:%M:%S")
+              - if message.body?
+                .main__message__low
+                  = message.body
+              - if message.image?
+                .main__message__low
+                  = image_tag "#{message.image.thumb}"
+              %br
         .form
           .form__box
             = form_for [@group, @message] do |f|

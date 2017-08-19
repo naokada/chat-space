@@ -17,6 +17,12 @@
             %li<
             = link_to new_group_message_path(group) do
               .sidebar__list__group
-                %p #{ group.name }
+                = group.name
               .sidebar__list__text
-                %p まだメッセージはありません
+                - unless group.messages.last == nil
+                  - if group.messages.last.image?
+                    %p 画像が投稿されています
+                  - else
+                    = group.messages.last.body
+                - else
+                  %p まだメッセージはありません。
