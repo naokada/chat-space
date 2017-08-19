@@ -17,29 +17,7 @@
         .main
           .main__messages
             .main__message
-              .main__message__up
-                .main__message__up__name
-                  %p ryosukemaehira
-                .main__message__up__date
-                  %p 2016/10/02 06:27:07
-              .main__message__low
-                %p なるほど
-            .main__message
-              .main__message__up
-                .main__message__up__name
-                  %p ryosukemaehira
-                .main__message__up__date
-                  %p 2016/10/02 06:27:14
-              .main__message__low
-                %p command Enterで送信したい感ある
-            .main__message
-              .main__message__up
-                .main__message__up__name
-                  %p ryosukemaehira
-                .main__message__up__date
-                  %p 2016/10/02 06:27:30
-              .main__message__low
-                %p おなかすいた
+            = render @messages
         .form
           .form__box
             = form_for [@group, @message] do |f|

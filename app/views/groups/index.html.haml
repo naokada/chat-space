@@ -13,10 +13,5 @@
               %i{class: "fa fa-edit"}
         .sidebar__list
           %ul
-          - @groups.each do |group|
-            %li<
-            = link_to new_group_message_path(group) do
-              .sidebar__list__group
-                %p #{ group.name }
-              .sidebar__list__text
-                %p まだメッセージはありません
+          = render @groups
+
