@@ -8,16 +8,15 @@ class GroupsControllerTest < ActionController::TestCase
       context 'when user signed_in' do
         before do
           login_user user
+          get :index
         end
 
         it 'assigns the repuested current_user.groups @groups' do
-          get :index
           groups = user.groups
           expect(assigns(:groups)).to eq groups
         end
 
         it 'renders the :index template' do
-          get :index
           expect(response).to render_template :index
         end
       end
