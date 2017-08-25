@@ -22,7 +22,7 @@ class MessagesController < ApplicationController
 
 private
   def message_params
-    params.require(:message).permit(:body, :image, :image_cache, :remove_image).merge(group_id: params[:group_id])
+    params.require(:message).permit(:body, :image).merge(group_id: params[:group_id])
   end
 
   def set_groups
