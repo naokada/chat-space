@@ -24,7 +24,7 @@ class MessagesControllerTest < ActionController::TestCase
           expect(assigns(:messages)).to eq messages
         end
 
-        it 'renders the :index template' do
+        it 'renders the :new template' do
           expect(response).to render_template :new
         end
       end
