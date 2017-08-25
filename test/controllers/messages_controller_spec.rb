@@ -7,6 +7,29 @@ class MessagesControllerTest < ActionController::TestCase
     let(:message) { create(:message) }
     let(:invalid_message) { create(:invalid_message) }
 
+    describe 'GET #new', type: :controller do
+      context 'when user signed_in' do
+        before do
+          login_user user
+          @group = user.groups.first
+          get :new, params:{group_id: @group.id}
+        end
+
+        it 'assigns the requested new message @message' do
+          expect(assigns(:message)).to be_a_new(Message)
+        end
+
+        it 'assigns the requested messages @messages' do
+          messages = group.messages
+          expect(assigns(:messages)).to eq messages
+        end
+
+        it 'renders the :index template' do
+          expect(response).to render_template :new
+        end
+      end
+    end
+
     describe 'POST #create', type: :controller do
 
       context 'when user sign_in and succeed to save' do

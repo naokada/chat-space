@@ -11,7 +11,7 @@ class GroupsControllerTest < ActionController::TestCase
           get :index
         end
 
-        it 'assigns the repuested current_user.groups @groups' do
+        it 'assigns the requested current_user.groups @groups' do
           groups = user.groups
           expect(assigns(:groups)).to eq groups
         end
