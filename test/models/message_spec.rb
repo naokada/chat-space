@@ -46,7 +46,7 @@ class MessageTest < ActiveSupport::TestCase
       end
     end
 
-    context "does not have a nessary factor" do
+    context "does not have a necessary factor" do
       let(:body) { Faker::Lorem.sentence }
       let(:image) { Rack::Test::UploadedFile.new(File.join(Rails.root, 'test/fixtures/files/sample.jpg')) }
       let(:user_id) { user.id }
