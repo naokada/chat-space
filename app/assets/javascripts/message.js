@@ -31,6 +31,7 @@ $(function(){
       $('.main__messages').append(html);
       $('#input-body').val('');
       console.log("done");
+      return false;
     })
     .fail(function() {
       alert('メッセージを入力してください');
