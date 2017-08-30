@@ -1,11 +1,14 @@
 FactoryGirl.define do
-  factory :message do
-    body    Faker::Name.name
-    image   Faker::File.file_name
-  end
+  pass = Faker::Internet.password(8)
 
-  factory :invalid_message, class: "Message" do
-    body  nil
-    image nil
+  factory :user do
+    name                  Faker::Name.name
+    email                 Faker::Internet.email
+    password              pass
+    password_confirmation pass
+
+    after(:create) do |user|
+      create(:group_user, user: user, group: create(:group))
+    end
   end
 end
