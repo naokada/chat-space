@@ -29,7 +29,6 @@ $(function(){
       var html = buildHTML(data);
       $('.main__messages').append(html);
       $('#input-body').val('');
-      console.log("done");
       return false;
     })
     .fail(function() {
