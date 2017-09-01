@@ -34,7 +34,7 @@ $(function(){
       return false;
     })
     .fail(function() {
-      alert('メッセージを入力してください');
+      $('.flash').html("メッセージを入力してください").addClass('flash__alert');
     })
   })
 });
