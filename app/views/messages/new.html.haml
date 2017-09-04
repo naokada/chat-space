@@ -20,10 +20,10 @@
             = render @messages
         .form
           .form__box
-            = form_for [@group, @message] do |f|
+            = form_for [@group, @message], format: 'json', id: 'new_message' do |f|
               .form__box__left
                 .form__box__text
-                  = f.text_field :body, placeholder: "type a message"
+                  = f.text_field :body, placeholder: "type a message", id: "input-body", class: "form__box__text"
                 .form__box__pic
                   = f.label :image, fa_icon('picture-o')
                 .form__box__pic__botton
