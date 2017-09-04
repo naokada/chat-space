@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
   function buildHTML(message){
     if (message.image != null){
     var image = `<img src=${ message.image }>`;
@@ -14,7 +14,10 @@ $(function(){
     return html;
   }
   $('#new_message').on('submit', function(e){
+    $('.flash').html("").removeClass('flash__alert');
     e.preventDefault();
+    var $form = $(this);
+    var $button = $(".form__box__send input");
     var formData = new FormData(this);
     var href = "../messages.json";
     $.ajax({
@@ -23,12 +26,19 @@ $(function(){
       data: formData,
       dataType: 'json',
       processData: false,
-      contentType: false
+      contentType: false,
+      timeout: 10000,
+      beforeSend: function(xhr, settings) {
+        $button.attr('disabled', true);
+      },
+      complete: function(xhr, textStatus) {
+        $button.attr('disabled', false);
+      },
     })
     .done(function(data){
       var html = buildHTML(data);
       $('.main__messages').append(html);
-      $('#input-body').val('');
+      $form[0].reset();
       return false;
     })
     .fail(function() {
@@ -36,4 +46,3 @@ $(function(){
     })
   })
 });
-

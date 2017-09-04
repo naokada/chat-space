@@ -20,7 +20,7 @@
             = render @messages
         .form
           .form__box
-            = form_for [@group, @message], remote: true, format: 'json', id: 'new_message' do |f|
+            = form_for [@group, @message], format: 'json', id: 'new_message' do |f|
               .form__box__left
                 .form__box__text
                   = f.text_field :body, placeholder: "type a message", id: "input-body", class: "form__box__text"
