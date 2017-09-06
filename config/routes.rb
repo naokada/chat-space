@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :groups, except: :destroy do
     resources :messages, only: [:index, :new, :create]
     collection do
-      get  :ajax_user_list
+      get  :search
     end
   end
 end

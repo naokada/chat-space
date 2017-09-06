@@ -21,11 +21,10 @@ $(document).on('turbolinks:load',function() {
   $("#user-search-field").on("keyup", function(e) {
     e.preventDefault();
     var input = $.trim($(this).val());
-    var href = location.href
 
     $.ajax({
       type: 'GET',
-      url: "/groups/ajax_user_list",
+      url: "/groups/search",
       data: ("keyword=" + input),
       processData: false,
       contentType: false,

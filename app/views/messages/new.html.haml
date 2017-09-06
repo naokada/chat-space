@@ -13,7 +13,7 @@
                 - @users.each do |user|
                   %li #{ user.name }
           .header__edit
-            =link_to "edit", edit_group_path(@group), class: "header__edit__button"
+            = link_to "edit", edit_group_path(@group), class: "header__edit__button"
         .main
           .main__messages
             .main__message
