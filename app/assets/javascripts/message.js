@@ -11,13 +11,10 @@ $(document).on('turbolinks:load', function(){
     })
     .done(function(json) {
       var id = $('.main__message__up:last').data('id');
-      console.log(id)
       var insertHTML = '';
-      console.log(json);
       json.messages.forEach(function(message) {
          if (message.id > id ) {
           insertHTML += buildHTML(message);
-          console.log(insertHTML)
          }
         });
       $('.main__messages').append(insertHTML);
