@@ -59,7 +59,11 @@ $(document).on('turbolinks:load',function() {
   });
 
   $("#user-added").on("click", "a.user-search-remove", function() {
-    var user = $(this).parent().parent();
-    user.html("");
+    var user = $(this).parent();
+    user.html("").css({'border':'none'});
+  });
+  $("a.user-search-remove").on("click", function() {
+    var user = $(this).parent();
+    user.html("").css({'border':'none'});
   });
 });
