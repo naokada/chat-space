@@ -19,9 +19,16 @@ class GroupsController < ApplicationController
     end
   end
 
+  def ajax_user_list
+    @users = User.where('name LIKE(?)', "%#{params[:keyword]}%")
+    respond_to do |format|
+      format.json { render 'new', json: @users }
+    end
+  end
+
   def create
     @group = Group.new(create_params)
-    @users = User.where('name LIKE(?)',"%#{params[:keyword]}%").limit(10)
+    @users = User.search_by_name(params[:q])
     respond_to do |format|
       format.html
       format.json

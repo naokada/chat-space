@@ -8,6 +8,15 @@ $(document).on('turbolinks:load',function() {
     return html;
   }
 
+  function buildHtmlAddedUser(user) {
+    var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
+  <input name='group[user_ids][]' type='hidden' value='ユーザーのid'>
+  <p class='chat-group-user__name'>ユーザー名</p>
+  <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
+</div>`
+    return html;
+  }
+
 
   $("#user-search-field").on("keyup", function(e) {
     e.preventDefault();
@@ -16,8 +25,8 @@ $(document).on('turbolinks:load',function() {
 
     $.ajax({
       type: 'GET',
-      url: href,
-      data: { keyword: input },
+      url: "/groups/ajax_user_list",
+      data: ("keyword=" + input),
       processData: false,
       contentType: false,
       dataType: 'json'
@@ -28,7 +37,9 @@ $(document).on('turbolinks:load',function() {
       search_list.empty();
 
       if (input.length !== 0) {
-        var users = $(data)[0]["users"]
+        var users = $(data);
+        var users = Object.values(users);
+        users.pop();
         users.forEach(function(user) {
           var html = buildHtmlUser(user);
           search_list.append(html);
@@ -40,17 +51,13 @@ $(document).on('turbolinks:load',function() {
     })
   });
 
-  $(".user-search-add").on("click", function(e) {
-    e.preventDefault();
-
-    $.ajax({
-      type: 'POST',
-      url: href,
-      data: { id: user-id },
-      processData: false,
-      contentType: false,
-      dataType: 'json'
-    })
+  $("#user-search-result.chat-group-user__btn--add").on("click", function() {
+    console.log("done");
+    var user = $(this);
+    console.log(user);
+    var added_list = $("#user-added");
+    var html = buildHtmlAddedUser(user);
+    added_list.append(html);
 
   });
 });
