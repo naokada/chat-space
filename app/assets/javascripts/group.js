@@ -54,7 +54,6 @@ $(document).on('turbolinks:load',function() {
   $("#user-search-result").on("click", "a.user-search-add", function() {
     var added_list = $("#user-added")
     var user = $(this);
-    console.log(user.data('user-id'));
     var html = buildHtmlAddedUser(user);
     added_list.append(html);
   });
