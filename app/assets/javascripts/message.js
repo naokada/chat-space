@@ -2,7 +2,6 @@ $(document).on('turbolinks:load', function(){
   setInterval(update, 5000);
 
   function update(){
-    var message_id = $('.main__message__up:last').data('id');
     $.ajax({
       url: location.href.json,
       dataType: 'json',
@@ -19,7 +18,7 @@ $(document).on('turbolinks:load', function(){
         });
       $('.main__messages').append(insertHTML);
       var bottomHeight = $('.main__messages')[0].scrollHeight;
-      $('.main').animate({scrollTop: bottomHeight}, 'slow');
+      $('.main').animate({ scrollTop: bottomHeight }, 'slow');
     })
   }
 
@@ -65,7 +64,7 @@ $(document).on('turbolinks:load', function(){
       $('.main__messages').append(html);
       $form[0].reset();
       var bottomHeight = $('.main__messages')[0].scrollHeight;
-      $('.main').animate({scrollTop: bottomHeight}, 'slow');
+      $('.main').animate({ scrollTop: bottomHeight }, 'slow');
     })
     .fail(function() {
       $('.flash').html("メッセージを入力してください").addClass('flash__alert');
