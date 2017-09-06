@@ -1,4 +1,31 @@
 $(document).on('turbolinks:load', function(){
+  setInterval(update, 5000);
+
+  function update(){
+    var message_id = $('.main__message__up:last').data('id');
+    $.ajax({
+      url: location.href.json,
+      dataType: 'json',
+      processData: false,
+      contentType: false
+    })
+    .done(function(json) {
+      var id = $('.main__message__up:last').data('id');
+      console.log(id)
+      var insertHTML = '';
+      console.log(json);
+      json.messages.forEach(function(message) {
+         if (message.id > id ) {
+          insertHTML += buildHTML(message);
+          console.log(insertHTML)
+         }
+        });
+      $('.main__messages').append(insertHTML);
+      var bottomHeight = $('.main__messages')[0].scrollHeight;
+      $('.main').animate({scrollTop: bottomHeight}, 'slow');
+    })
+  }
+
   function buildHTML(message){
     if (message.image != null){
     var image = `<img src=${ message.image }>`;
@@ -13,6 +40,7 @@ $(document).on('turbolinks:load', function(){
     var html = `<div class="main__message__up"><div class="main__message__up__name">${ message.user_name }</div><div class="main__message__up__date">${ message.time }</div></div><div class="main__message__low">${ body }</div><div class="main__message__low">${ image }</div><br>`
     return html;
   }
+
   $('#new_message').on('submit', function(e){
     $('.flash').html("").removeClass('flash__alert');
     e.preventDefault();
@@ -39,7 +67,8 @@ $(document).on('turbolinks:load', function(){
       var html = buildHTML(data);
       $('.main__messages').append(html);
       $form[0].reset();
-      return false;
+      var bottomHeight = $('.main__messages')[0].scrollHeight;
+      $('.main').animate({scrollTop: bottomHeight}, 'slow');
     })
     .fail(function() {
       $('.flash').html("メッセージを入力してください").addClass('flash__alert');
