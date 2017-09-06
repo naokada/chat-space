@@ -10,8 +10,8 @@ $(document).on('turbolinks:load',function() {
 
   function buildHtmlAddedUser(user) {
     var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
-  <input name='group[user_ids][]' type='hidden' value='ユーザーのid'>
-  <p class='chat-group-user__name'>ユーザー名</p>
+  <input name='group[user_ids][]' type='hidden' value='${ user.data('user-id') }'>
+  <p class='chat-group-user__name'>${ user.data('user-name') }</p>
   <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
 </div>`
     return html;
@@ -51,13 +51,16 @@ $(document).on('turbolinks:load',function() {
     })
   });
 
-  $("#user-search-result.chat-group-user__btn--add").on("click", function() {
-    console.log("done");
+  $("#user-search-result").on("click", "a.user-search-add", function() {
+    var added_list = $("#user-added")
     var user = $(this);
-    console.log(user);
-    var added_list = $("#user-added");
+    console.log(user.data('user-id'));
     var html = buildHtmlAddedUser(user);
     added_list.append(html);
+  });
 
+  $("#user-added").on("click", "a.user-search-remove", function() {
+    var user = $(this).parent().parent();
+    user.html("");
   });
 });
