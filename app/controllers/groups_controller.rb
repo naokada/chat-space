@@ -14,6 +14,13 @@ class GroupsController < ApplicationController
     @group = Group.new
   end
 
+  def search
+    @users = User.where('name LIKE(?)', "%#{params[:keyword]}%")
+    respond_to do |format|
+      format.json { render 'new', json: @users }
+    end
+  end
+
   def create
     @group = Group.new(create_params)
     if @group.save
